@@ -19,12 +19,16 @@
                     </div>
 
                     <div class="leading-loose m-3 p-3">
-                        <form action="{{ route('shop.store') }}" method="post">
+                        <form action="{{ route('plan.store') }}" method="post">
                             @csrf
 
-                            <div class="">
-                                <x-label>店舗名</x-label>
+                            <div>
+                                <x-label>予約プラン名称</x-label>
                                 <x-input name="name" value="{{ old('name') }}" type="text" required class="w-1/2" />
+                            </div>
+                            <div class="mt-3">
+                                <x-label>料金</x-label>
+                                <x-input name="price" value="{{ old('price') }}" type="text" required class="w-1/3" />円
                             </div>
                             <div class="mt-5">
                                 <x-button-custom type="submit">登録</x-button-custom>
