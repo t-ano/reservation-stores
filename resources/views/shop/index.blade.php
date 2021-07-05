@@ -10,22 +10,34 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <div class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
-                        <div class="bg-white rounded shadow p-6 m-4 w-full md:w-3/4 lg:max-w-lg">
-                            <div class="mb-4">
-                                <div class="flex justify-end">
-                                    <a href="{{ route('shop.create') }}" class="flex-no-shrink px-2 py-1 border-2 border-gray-400 font-bold text-gray-400 rounded hover:bg-green-400 hover:border-green-400 hover:text-white">新規追加</a>
-                                </div>
-                            </div>
-                            <div>
-                                @foreach ($shops as $shop)
-                                <div class="flex mb-4 items-center">
-                                    <p class="w-full text-grey-darkest">{{ $shop->shop_name }}</p>
-                                    <a href="{{ route('shop.edit', ['id' => $shop->id]) }}" class="flex-no-shrink px-2 py-1 mx-3 border-2 border-gray-400 font-bold text-gray-400 rounded hover:bg-green-400 hover:border-green-400 hover:text-white whitespace-nowrap">編集</a>
-                                    <button class="flex-no-shrink px-2 py-1 mx-3 border-2 border-gray-400 font-bold text-gray-400 rounded hover:bg-green-400 hover:border-green-400 hover:text-white whitespace-nowrap">削除</button>
-                                </div>
-                                @endforeach
-                            </div>
+                    <div class="w-2/3 mx-auto">
+                        <div class="bg-white shadow-sm rounded my-6">
+                            <table class="text-center w-full border-collapse">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th
+                                            class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+                                            店舗名</th>
+                                        <th
+                                            class="py-4 px-6 bg-grey-lightest font-bold uppercase text-grey-dark border-b border-grey-light"><a href="{{ route('shop.create') }}"><x-button-custom>新規作成</x-button-custom></a>
+                                            </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($shops as $shop)
+                                        <tr class="hover:bg-grey-lighter">
+                                            <td class="py-4 px-6 border-b border-grey-light">{{ $shop->name }}</td>
+                                            <td class="py-4 px-6 border-b border-grey-light">
+                                                <form action="{{ route('shop.destroy', $shop->id) }}" method="post">
+                                                    @csrf
+                                                    <a href="{{ route('shop.edit', ['id' => $shop->id]) }}"><x-button-custom type="button">編集</x-button-custom></a>
+                                                    <x-button-custom type="submit" onclick="return deleteCheck()">削除</x-button-custom>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 
@@ -33,4 +45,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function deleteCheck() {
+            if (window.confirm('削除しますか？')) return true;
+            return false;
+        }
+    </script>
+
 </x-app-layout>
