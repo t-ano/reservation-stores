@@ -4,16 +4,22 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class auth-title extends Component
+
+class Radio extends Component
 {
+
+    public $name;
+    public $value;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name, $value)
     {
-        //
+        $this->name = $name;
+        $this->value = $value;
     }
 
     /**
@@ -23,6 +29,6 @@ class auth-title extends Component
      */
     public function render()
     {
-        return view('components.auth-title');
+        return view('components.radio');
     }
 }

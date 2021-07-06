@@ -9,10 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white">
-                    ログインしました。
-                </div>
-                <div class="p-6 bg-white">
-                    メニューを選択してください。
+                    <div class="mb-3">ログインしました。</div>
+                    <div>メニューを選択してください。</div>                    
                 </div>
             </div>
         </div>

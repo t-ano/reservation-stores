@@ -24,7 +24,7 @@
                                         <th
                                             class="py-4 px-6 bg-grey-lightest font-bold uppercase text-grey-dark border-b border-grey-light">
                                             <a href="{{ route('plan.create') }}">
-                                                <x-button-custom>新規作成</x-button-custom>
+                                                <x-grn-btn value="新規作成" />
                                             </a>
                                         </th>
                                     </tr>
@@ -38,10 +38,10 @@
                                             <form action="{{ route('plan.destroy', $plan->id) }}" method="post">
                                                 @csrf
                                                 <a href="{{ route('plan.edit', ['id' => $plan->id]) }}">
-                                                    <x-button-custom type="button">編集</x-button-custom>
+                                                    <x-grn-btn type="button" value="編集" />
                                                 </a>
-                                                <x-button-custom type="submit" onclick="return deleteCheck()">削除
-                                                </x-button-custom>
+                                                <x-grn-btn type="submit" onclick="return deleteCheck()" value="削除" />
+                                                
                                             </form>
                                         </td>
                                     </tr>

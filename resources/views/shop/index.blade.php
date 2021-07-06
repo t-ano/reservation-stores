@@ -19,7 +19,7 @@
                                             class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
                                             店舗名</th>
                                         <th
-                                            class="py-4 px-6 bg-grey-lightest font-bold uppercase text-grey-dark border-b border-grey-light"><a href="{{ route('shop.create') }}"><x-button-custom>新規作成</x-button-custom></a>
+                                            class="py-4 px-6 bg-grey-lightest font-bold uppercase text-grey-dark border-b border-grey-light"><a href="{{ route('shop.create') }}"><x-grn-btn value="新規作成" /></a>
                                             </th>
                                     </tr>
                                 </thead>
@@ -30,8 +30,8 @@
                                             <td class="py-4 px-6 border-b border-grey-light">
                                                 <form action="{{ route('shop.destroy', $shop->id) }}" method="post">
                                                     @csrf
-                                                    <a href="{{ route('shop.edit', ['id' => $shop->id]) }}"><x-button-custom type="button">編集</x-button-custom></a>
-                                                    <x-button-custom type="submit" onclick="return deleteCheck()">削除</x-button-custom>
+                                                    <a href="{{ route('shop.edit', ['id' => $shop->id]) }}"><x-grn-btn type="button" value="編集" /></a>
+                                                    <x-grn-btn type="submit" onclick="return deleteCheck()" value="削除" />
                                                 </form>
                                             </td>
                                         </tr>
