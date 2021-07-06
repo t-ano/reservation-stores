@@ -18,7 +18,7 @@
                         </ul>
                     </div>
 
-                    <div class="leading-loose m-3 p-3">
+                    <div class="leading-loose m-3 p-5">
                         <form action="{{ route('plan.update', ['id' => $plan->id]) }}" method="post">
                             @csrf
 

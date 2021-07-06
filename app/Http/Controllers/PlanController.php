@@ -24,7 +24,9 @@ class PlanController extends Controller
     {
         Plan::insert([
             'name' => $request->name,
-            'price' => (int)$request->price
+            'price' => (int)$request->price,
+            'start' => $request->start,
+            'end' => $request->end
         ]);
 
         $plans = Plan::all();

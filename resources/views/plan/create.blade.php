@@ -18,17 +18,25 @@
                         </ul>
                     </div>
 
-                    <div class="leading-loose m-3 p-3">
+                    <div class="leading-loose m-3 p-5">
                         <form action="{{ route('plan.store') }}" method="post">
                             @csrf
 
                             <div>
                                 <x-label>予約プラン名称</x-label>
-                                <x-input name="name" value="{{ old('name') }}" type="text" required class="w-1/2" />
+                                <x-input name="name" value="{{ old('name') }}" type="text" required class="md:w-1/3" />
                             </div>
                             <div class="mt-3">
                                 <x-label>料金</x-label>
-                                <x-input name="price" value="{{ old('price') }}" type="text" required class="w-1/3" />円
+                                <x-input name="price" value="{{ old('price') }}" type="text" required class="md:w-1/4" />円
+                            </div>
+                            <div class="mt-3">
+                                <x-label>開始日</x-label>
+                                <x-input name="start" value="{{ old('start') }}" type="date" required class="md:w-1/4" />
+                            </div>
+                            <div class="mt-3">
+                                <x-label>終了日</x-label>
+                                <x-input name="end" value="{{ old('end') }}" type="date" required class="md:w-1/4" />
                             </div>
                             <div class="mt-5">
                                 <x-grn-btn type="submit" value="登録" />

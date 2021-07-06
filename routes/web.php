@@ -22,6 +22,12 @@ use \App\Http\Controllers\GuestController;
 Route::get('/', [GuestController::class, 'index'])
     ->name('guest.index');
 
+// Route::post('/', [GuestController::class, 'search'])
+//     ->name('guest.search');
+
+Route::get('/guest/create', [GuestController::class, 'create'])
+    ->name('guest.create');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
