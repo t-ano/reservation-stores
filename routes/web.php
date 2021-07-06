@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PlanController;
+use \App\Http\Controllers\GuestController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +16,11 @@ use App\Http\Controllers\PlanController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [GuestController::class, 'index'])
+    ->name('guest.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

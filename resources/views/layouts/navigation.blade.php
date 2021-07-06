@@ -36,6 +36,11 @@
                         売上データ
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('admin.register')">
+                        管理者追加
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

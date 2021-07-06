@@ -31,7 +31,7 @@
                                 <x-input name="price" value="{{ $plan->price }}" type="text" required class="w-1/3" />円
                             </div>
                             <div class="mt-5">
-                                <x-button-custom type="submit">登録</x-button-custom>
+                                <x-grn-btn type="submit" value="登録" />
                             </div>
                         </form>
                     </div>
