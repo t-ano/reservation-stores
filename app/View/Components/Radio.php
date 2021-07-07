@@ -10,16 +10,18 @@ class Radio extends Component
 
     public $name;
     public $value;
+    public $checked;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $value)
+    public function __construct($name, $value, $checked)
     {
         $this->name = $name;
         $this->value = $value;
+        $this->checked = ($checked) ? 'checked' : '';
     }
 
     /**

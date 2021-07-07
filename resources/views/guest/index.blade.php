@@ -13,17 +13,17 @@
 
             <form action="{{ route('guest.index') }}" method="get">
                 @csrf
-                <div class="flex justify-start items-end mt-10 mb-5 ">
-                    <div class="w-1/4 mr-3">
+                <div class="md:flex justify-start items-end mt-10 mb-5 ">
+                    <div class="lg:w-1/4 mr-3">
                         <x-label>店舗名</x-label>
-                        <x-input type="text" name="shop" value="{{ $word }}" />                            
+                        <x-input type="text" name="word" value="{{ $word }}" />                            
                     </div>
-                    <div class="w-1/4 mr-3">
+                    <div class="lg:w-1/4 mr-3">
                         <x-label>対象月</x-label>
                         <x-input name="month" type="month" value="{{ $month }}" />
                     </div>
-                    <div>
-                        <x-grn-btn type="submit" value="絞り込み" />
+                    <div class="mt-3 md:mt-0">
+                        <x-grn-btn type="submit" name="search" value="絞り込み" />
                     </div>
                 </div>
             </form>
@@ -32,7 +32,7 @@
                 <div class="text-red-400">
                     <ul>
                         @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                            <li>{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -45,7 +45,7 @@
                     <x-label class="text-lg font-bold">店舗選択</x-label>
                     <div class="mt-2 mx-5">
                         @foreach ($shops as $shop)
-                            <x-radio :name="'shop'" :value="$shop->id">{{ $shop->name }}</x-radio>
+                            <x-radio :name="'shop'" :value="$shop->id" :checked="($shop->id == old('shop') || $shop->id == $selectedShop)">{{ $shop->name }}</x-radio>
                         @endforeach
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                                 </tr>
                                 @foreach ($plans as $plan)
                                     <tr class="text-left">
-                                        <td><x-radio :name="'plan'" :value="$plan->id">{{ $plan->name }}</x-radio></td>
+                                        <td><x-radio :name="'plan'" :value="$plan->id" :checked="($plan->id == old('plan') || $plan->id == $selectedPlan)">{{ $plan->name }}</x-radio></td>
                                         <td>{{ str_replace('-', '/', $plan->start) }} 〜 {{ str_replace('-', '/',$plan->end) }}</td>
                                         <td>{{ number_format($plan->price) }} 円</td>
                                     </tr>
