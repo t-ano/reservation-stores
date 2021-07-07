@@ -74,8 +74,6 @@ class GuestController extends Controller
             'plan' => $request->plan
         ]);
 
-        // $c_id = 2;
-        // $r_id = 1;
         return redirect()->route('guest.show', ['c_id' => $c_id, 'r_id' => $r_id]);
     }
 
@@ -84,7 +82,7 @@ class GuestController extends Controller
         $customer = Customer::findOrFail($c_id);
 
         $reserve = Reserve::where('reserves.id', '=', $r_id)
-            ->select('price', 'shops.name as s_name', 'plans.name as p_name')
+            ->select('price', 'shops.name as s_name', 'plans.name as p_name', 'reserves.id', 'reserves.payment')
             ->join('shops', 'reserves.shop', '=', 'shops.id')
             ->join('plans', 'reserves.shop', '=', 'plans.id')
             ->get()[0];
@@ -92,38 +90,34 @@ class GuestController extends Controller
         return view('guest.show', compact('customer', 'reserve'));
     }
 
-    public function pay()
+    public function payment()
     {
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-        function calculateOrderAmount(array $items): int
-        {
-            // Replace this constant with a calculation of the order's amount
-            // Calculate the order total on the server to prevent
-            // customers from directly manipulating the amount on the client
-            return 1400;
-        }
-
         header('Content-Type: application/json');
 
+        $params = json_decode(file_get_contents('php://input'), true);
+
         try {
-            // retrieve JSON from POST body
-            $json_str = file_get_contents('php://input');
-            $json_obj = json_decode($json_str);
-
             $paymentIntent = \Stripe\PaymentIntent::create([
-                'amount' => calculateOrderAmount($json_obj->items),
-                'currency' => 'usd',
+                'amount' => $params['price'],
+                'currency' => 'jpy',
             ]);
-
             $output = [
                 'clientSecret' => $paymentIntent->client_secret,
             ];
-
             echo json_encode($output);
         } catch (Error $e) {
             http_response_code(500);
             echo json_encode(['error' => $e->getMessage()]);
         }
     }
+
+    public function success() {
+        $params = json_decode(file_get_contents('php://input'), true);
+
+        Reserve::where('id', '=', $params['reserveId'])->update(['payment' => true]);
+
+        echo json_encode(['payment' => 'done']);
+    }
+
 }

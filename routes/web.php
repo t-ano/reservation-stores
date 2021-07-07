@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,11 @@ Route::post('/guest/store', [GuestController::class, 'store'])
 Route::get('/guest/{c_id}/{r_id}/show', [GuestController::class, 'show'])
     ->name('guest.show');
 
-Route::post('/guest/pay', [GuestController::class, 'pay'])
-    ->name('guest.pay');
+Route::post('/guest/payment', [GuestController::class, 'payment'])
+    ->name('guest.payment');
+
+Route::post('/guest/success', [GuestController::class, 'success'])
+    ->name('guest.success');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -75,3 +79,6 @@ Route::post('/plan/{id}/update', [PlanController::class, 'update'])
 
 Route::post('/plan/{id}/destroy', [PlanController::class, 'destroy'])
     ->name('plan.destroy');
+
+Route::get('/customer/index', [CustomerController::class, 'index'])
+    ->name('customer.index');
