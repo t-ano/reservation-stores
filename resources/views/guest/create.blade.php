@@ -10,9 +10,11 @@
         </div>
 
         <div class="max-w-7xl w-4/5 mx-auto mb-20 sm:px-6 lg:px-8">
-
             <form action="{{ route('guest.store') }}" method="post">
                 @csrf
+
+                <input type="hidden" name="shop" value="{{ $shop->id }}" />
+                <input type="hidden" name="plan" value="{{ $plan->id }}" />
 
                 <div class="px-6 pt-5 sm:w-4/5 lg:2/3">
                     <x-label class="text-lg font-bold">店舗</x-label>
@@ -44,20 +46,28 @@
                 <div class="px-6 pt-10">
                     <div class="mb-3">以下の項目を入力してください。</div>
                     <x-label class="font-bold mt-3">お名前</x-label>
-                    <x-input type="text" name="name" value="" />
+                    <x-input type="text" name="name" value="" required />
                     <x-label class="font-bold mt-3">メールアドレス</x-label>
-                    <x-input type="text" name="mail" value="" />
-
+                    <x-input type="text" name="mail" value="" required />
                 </div>
+          
+                @if ($errors->any())
+                    <div class="text-red-400 mt-5">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <div class="mt-7 px-6">
-                    <x-grn-btn type="submit" value="次へ" />
+                    <x-grn-btn type="submit" value="確定する" />
+                    <a href="{{ route('guest.index', ['selectedShop' => $shop, 'selectedPlan' => $plan]) }}"><x-grn-btn type="button" value="戻る" /></a>
                 </div>
 
             </form>
-
         </div>
-
     </div>
 
 </x-guest-layout>

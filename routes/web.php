@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PlanController;
-use \App\Http\Controllers\GuestController;
+use App\Http\Controllers\GuestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +22,17 @@ use \App\Http\Controllers\GuestController;
 Route::get('/', [GuestController::class, 'index'])
     ->name('guest.index');
 
-// Route::post('/', [GuestController::class, 'search'])
-//     ->name('guest.search');
-
 Route::get('/guest/create', [GuestController::class, 'create'])
     ->name('guest.create');
+
+Route::post('/guest/store', [GuestController::class, 'store'])
+    ->name('guest.store');
+
+Route::get('/guest/{c_id}/{r_id}/show', [GuestController::class, 'show'])
+    ->name('guest.show');
+
+Route::post('/guest/pay', [GuestController::class, 'pay'])
+    ->name('guest.pay');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
