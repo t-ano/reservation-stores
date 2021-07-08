@@ -71,7 +71,8 @@ class GuestController extends Controller
         $r_id = Reserve::insertGetId([
             'customer' => $c_id,
             'shop' => $request->shop,
-            'plan' => $request->plan
+            'plan' => $request->plan,
+            'datetime' => date('Y-m-t H:i:s')
         ]);
 
         return redirect()->route('guest.show', ['c_id' => $c_id, 'r_id' => $r_id]);

@@ -84,7 +84,6 @@ class SalesController extends Controller
         }
         $response = new StreamedResponse (function() use ($cvsList){
             $stream = fopen('php://output', 'w');
-            stream_filter_prepend($stream,'convert.iconv.utf-8/cp932//TRANSLIT');  //　文字化け回避
             foreach($cvsList as $value) {
                 fputcsv($stream, $value);
             }

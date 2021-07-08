@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <div class="max-w-7xl w-4/5 mx-auto mb-20 sm:px-6 lg:px-8">
+        <div class="max-w-lg w-4/5 mx-auto mb-20 sm:px-6 lg:px-8">
             <form action="{{ route('guest.store') }}" method="post">
                 @csrf
 

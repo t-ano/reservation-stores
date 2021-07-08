@@ -12,8 +12,15 @@
 
                     <div class="w-full xl:w-4/5 mx-auto">
                         <div class="bg-white shadow-sm rounded mb-6">
-                            <span class="text-lg px-3">{{ $reserves[0]->c_name }} 様</span>
-                            <span class="text-md px-3">メールアドレス：{{ $reserves[0]->c_mail }} </span>
+                            <label class="text-lg px-3 block mb-1">{{ $reserves[0]->c_name }} 様</label>
+                            <label class="text-md px-3 flex">
+                                <svg class="h-5 w-5 text-gray-500 mr-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                                    <polyline points="3 7 12 13 21 7" /></svg>
+                                {{ $reserves[0]->c_mail }}
+                            </label>
                             <table class="text-center w-full border-collapse mt-3">
                                 <thead>
                                     <tr class="bg-gray-100">

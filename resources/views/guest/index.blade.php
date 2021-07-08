@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <div class="max-w-7xl w-4/5 mx-auto mb-20 sm:px-6 lg:px-8">
+        <div class="max-w-4xl w-4/5 mx-auto mb-20 sm:px-6 lg:px-8">
 
             <form action="{{ route('guest.index') }}" method="get">
                 @csrf
@@ -41,7 +41,7 @@
             <form action="{{ route('guest.create') }}" method="get">
                 @csrf
 
-                <div class="px-6 pt-5 sm:w-4/5 lg:2/3">
+                <div class="px-6 pt-5" style="width:700px;">
                     <x-label class="text-lg font-bold">店舗選択</x-label>
                     <div class="mt-2 mx-5">
                         @foreach ($shops as $shop)
@@ -54,7 +54,7 @@
                     <x-label class="text-lg font-bold">プラン選択</x-label>
                     <div class="mt-2">
                         <div class="w-full mx-auto px-5 overflow-x-auto shadow-sm">
-                            <table class="text-center w-full border-collapse">
+                            <table class="text-center border-collapse" style="width:600px;">
                                 <tr class="text-sm border-b border-gray-light text-left">
                                     <th>プラン名</th>
                                     <th>期間</th>
@@ -64,7 +64,7 @@
                                     <tr class="text-left">
                                         <td><x-radio :name="'plan'" :value="$plan->id" :checked="($plan->id == old('plan') || $plan->id == $selectedPlan)">{{ $plan->name }}</x-radio></td>
                                         <td>{{ str_replace('-', '/', $plan->start) }} 〜 {{ str_replace('-', '/',$plan->end) }}</td>
-                                        <td>{{ number_format($plan->price) }} 円</td>
+                                        <td class="text-right">{{ number_format($plan->price) }} 円</td>
                                     </tr>
                                 @endforeach
                             </table>

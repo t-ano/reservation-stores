@@ -23,17 +23,21 @@
                             </div>
                             <div>
                                 <x-label>年指定</x-label>
-                                <x-input type="text" name="year" size="5" placeholder="西暦4桁" value="{{ session('year') }}" />
+                                <x-input type="number" name="year" class="w-28" placeholder="西暦4桁" value="{{ session('year') }}" />
                             </div>
                             <div class="mt-auto">
                                 <x-grn-btn type="submit" name="change" value="表示切替" />
                             </div>
-                            <div class="mt-auto">
-                                <a href="{{ route('sales.download') }}"><x-grn-btn type="buttton" value="CSVダウンロード" /></a>
-                            </div>
                         </form>
                         <div class="bg-white shadow-sm rounded my-6">
-                            <div class="mb-3 px-3 text-lg border-b border-gray-300 w-52">合計金額：{{ number_format($result->total) }} 円</div>
+                            <div class="flex justify-between mb-3">
+                                <div class="px-3 text-lg border-b border-gray-300 w-64">
+                                    合計金額：{{ number_format($result->total) }} 円
+                                </div>
+                                <div class="mt-auto">
+                                    <a href="{{ route('sales.download') }}"><x-grn-btn type="buttton" value="CSVダウンロード" /></a>
+                                </div>
+                            </div>
                             <table class="text-center w-full border-collapse">
                                 <thead>
                                     <tr class="bg-gray-100">

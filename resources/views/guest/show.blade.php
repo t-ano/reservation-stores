@@ -9,17 +9,17 @@
             </div>
         </div>
 
-        <div class="max-w-7xl w-4/5 mx-auto mb-20 sm:px-6 lg:px-8">
+        <div class="max-w-lg w-4/5 mx-auto mb-20 sm:px-6 lg:px-8">
 
-            <div class="mt-5">
+            <div class="mt-5 mx-3">
                 <span>予約が完了しました。予約内容は以下の通りです。</span>
             </div>
 
-            <div class="px-6 pt-3">
+            <div class="pt-3 w-72 mx-auto">
                 <x-label class="font-bold mt-5">氏名</x-label>
-                <span class="px-5">{{ $customer->c_name }}</span>
+                <span class="px-5">{{ $customer->name }}</span>
                 <x-label class="font-bold mt-5">メールアドレス</x-label>
-                <span class="px-5">{{ $customer->c_mail }}</span>
+                <span class="px-5">{{ $customer->mail }}</span>
                 <x-label class="font-bold mt-5">予約店舗</x-label>
                 <span class="px-5">{{ $reserve->s_name }}</span>
                 <x-label class="font-bold mt-5">予約プラン</x-label>
@@ -32,7 +32,7 @@
                 <div class="p-5 text-sm">支払い済み</div>
                 <div class="mt-10">
             @else
-                    <form id="payment-form" class="mt-5 border rounded shadow-sm" style="width:300px;">
+                    <form id="payment-form" class="mt-5 border rounded shadow-sm w-72 mx-auto">
                         <div id="card-element" class="p-5">
                             <!--Stripe.js injects the Card Element-->
                         </div>
