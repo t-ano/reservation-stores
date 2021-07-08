@@ -17,17 +17,17 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.index')">
+                    <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.*')">
                         店舗管理
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('plan.index')" :active="request()->routeIs('plan.index')">
+                    <x-nav-link :href="route('plan.index')" :active="request()->routeIs('plan.*')">
                         予約プラン管理
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('customer.index')" :active="request()->routeIs(['customer.index','customer.show'])">
+                    <x-nav-link :href="route('customer.index')" :active="request()->routeIs('customer.*')">
                         顧客データ
                     </x-nav-link>
                 </div>
