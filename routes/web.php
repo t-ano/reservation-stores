@@ -5,6 +5,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SalesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +83,20 @@ Route::post('/plan/{id}/destroy', [PlanController::class, 'destroy'])
 
 Route::get('/customer/index', [CustomerController::class, 'index'])
     ->name('customer.index');
+
+Route::get('/customer/{id}/show', [CustomerController::class, 'show'])
+    ->name('customer.show');
+
+Route::get('/customer/download', [CustomerController::class, 'download'])
+    ->name('customer.download');
+
+Route::get('/sales/index', [SalesController::class, 'index'])
+    ->name('sales.index');
+
+Route::post('/sales/change', [SalesController::class, 'change'])
+    ->name('sales.change');
+
+Route::get('/sales/download', [SalesController::class, 'download'])
+    ->name('sales.download');
+
+

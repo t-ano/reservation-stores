@@ -17,9 +17,9 @@
 
             <div class="px-6 pt-3">
                 <x-label class="font-bold mt-5">氏名</x-label>
-                <span class="px-5">{{ $customer->name }}</span>
+                <span class="px-5">{{ $customer->c_name }}</span>
                 <x-label class="font-bold mt-5">メールアドレス</x-label>
-                <span class="px-5">{{ $customer->mail }}</span>
+                <span class="px-5">{{ $customer->c_mail }}</span>
                 <x-label class="font-bold mt-5">予約店舗</x-label>
                 <span class="px-5">{{ $reserve->s_name }}</span>
                 <x-label class="font-bold mt-5">予約プラン</x-label>

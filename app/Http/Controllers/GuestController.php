@@ -84,7 +84,7 @@ class GuestController extends Controller
         $reserve = Reserve::where('reserves.id', '=', $r_id)
             ->select('price', 'shops.name as s_name', 'plans.name as p_name', 'reserves.id', 'reserves.payment')
             ->join('shops', 'reserves.shop', '=', 'shops.id')
-            ->join('plans', 'reserves.shop', '=', 'plans.id')
+            ->join('plans', 'reserves.plan', '=', 'plans.id')
             ->get()[0];
 
         return view('guest.show', compact('customer', 'reserve'));

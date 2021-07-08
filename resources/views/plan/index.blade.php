@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <div class="w-4/5 mx-auto overflow-x-auto">
+                    <div class="w-full xl:w-4/5 mx-auto overflow-x-auto">
                         <div class="bg-white shadow-sm rounded my-6" style="min-width:900px;">
                             <table class="text-center w-full border-collapse">
                                 <thead>
