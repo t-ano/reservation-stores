@@ -18,6 +18,7 @@ class CreateReservesTable extends Migration
             $table->bigInteger('customer');
             $table->bigInteger('shop');
             $table->bigInteger('plan');
+            $table->dateTime('datetime');
             $table->boolean('payment')->default(false);
             $table->timestamps();
         });

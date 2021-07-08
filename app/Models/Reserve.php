@@ -13,6 +13,7 @@ class Reserve extends Model
         'customer',
         'shop',
         'plan',
+        'datetime',
         'payment'
     ];
 }
