@@ -4,6 +4,7 @@
 - Laravel Breeze　（認証機能パッケージ）
 - SQLite　（データベース）
 - Tailwind CSS　（CSSフレームワーク）
+- Stripe　（オンライン決済サービス）
 
 ### **要件**
 
