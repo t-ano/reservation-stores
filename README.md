@@ -33,6 +33,5 @@
 - 利用者情報の入力
 - 決済機能
 
-<br>
-
-画面イメージはこちら → [Notion](https://ossified-elephant-7c0.notion.site/75a13517dd154f8fb2022b37c5b97e6f)
+### 画面イメージ
+![](https://user-images.githubusercontent.com/46856574/145411531-05429a54-8a57-4cac-872e-d153865fdb1c.png)
