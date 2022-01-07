@@ -1,37 +1,74 @@
-### 利用した技術
+# reservation-stores
 
-- Laravel 8　（PHPフレームワーク）
-- Laravel Breeze　（認証機能パッケージ）
-- SQLite　（データベース）
-- Tailwind CSS　（CSSフレームワーク）
-- Stripe　（オンライン決済サービス）
+## Overview
 
-### **要件**
+A web application that allows you to manage reservations for multiple stores using Laravel.
 
-- ユーザーの予約を受け付けることができる。
-- 予約時に日付、予約プランで絞り込みができる。
-- 複数店舗の管理ができる。
-- 売上合計の日々、月間、年間を表示できる。
-- 顧客データの管理ができる。
-- 予約時にクレジットカード決済が可能。
-- 売上データのCSVダウンロードが可能。
-- 管理者IDとPASSが発行できログインできる。
+## Description
 
-### 機能
+It is possible to accept reservations from users.  
+Reservation slots can be narrowed down by date and plan.  
+Credit card payment is possible at the time of reservation.  
+You can register multiple stores.
 
-**管理者側**
-- 認証機能
-- 店舗の登録、編集、削除
-- 予約プランの登録、編集、削除
-- 顧客データの一覧表示
-- 売上を日々、月間、年間で表示
-- 顧客データ、売上データの CSV 出力
+## Demo
 
-**利用者側**
-- 日付、予約プランの絞り込み
-- 予約機能
-- 利用者情報の入力
-- 決済機能
+<!-- ## VS. -->
 
-### 画面イメージ
-![](https://user-images.githubusercontent.com/46856574/145411531-05429a54-8a57-4cac-872e-d153865fdb1c.png)
+## Requirement
+
+-   "laravel/framework": "^8.40"
+
+## Usage
+
+Admin login page 　(test acount => emal: admin@ne.jp / pass: admin123)  
+[http://127.0.0.1:8000/login](http://127.0.0.1:8000/login)
+
+User reservation page  
+[127.0.0.1:8000](127.0.0.1:8000)
+
+## Install
+
+1. Get source code
+
+    ```
+    git clone git@github.com:t-aono/reservation-stores.git
+    ```
+
+2. Copy .env-example to create .env.
+
+    ```
+    cp .env-example .env
+    ```
+
+3. Create database/database.sqlite and prepare the database.
+
+    ```
+    touch database/database.sqlite
+    ```
+
+4. Add package.
+
+    ```
+    omposer install
+    ```
+
+5. Start local development environment.
+
+    ```
+    php artisan key:generate
+    php artisan migrate
+    php artisan db:seed
+    php artisan serve
+    ```
+
+<!-- ## Contribution -->
+
+<!-- ## Licence -->
+
+## Author
+
+[t-aono](https://github.com/t-aono)
+
+<!-- README.md Sample -->
+<!-- https://deeeet.com/writing/2014/07/31/readme/ -->
