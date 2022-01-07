@@ -13,6 +13,8 @@ You can register multiple stores.
 
 ## Demo
 
+![cd0H5UwaDTafJBzIGQZo1641528398-1641528557](https://user-images.githubusercontent.com/46856574/148490197-3215aabf-d8e2-46b3-8b6a-6f73775678ec.gif)
+
 <!-- ## VS. -->
 
 ## Requirement
@@ -21,11 +23,12 @@ You can register multiple stores.
 
 ## Usage
 
-Admin login page 　(test acount => emal: admin@ne.jp / pass: admin123)  
-[http://127.0.0.1:8000/login](http://127.0.0.1:8000/login)
+Admin login page  
+[http://127.0.0.1:8000/login](http://127.0.0.1:8000/login)  
+(test acount => email: admin@ne.jp / password: admin123)    
 
 User reservation page  
-[127.0.0.1:8000](127.0.0.1:8000)
+[http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## Install
 
