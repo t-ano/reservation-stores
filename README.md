@@ -41,7 +41,7 @@ User reservation page
 2. Copy .env-example to create .env.
 
     ```
-    cp .env-example .env
+    cp .env.example .env
     ```
 
 3. Create database/database.sqlite and prepare the database.
