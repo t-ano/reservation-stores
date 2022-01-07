@@ -53,7 +53,7 @@ User reservation page
 4. Add package.
 
     ```
-    omposer install
+    composer install
     ```
 
 5. Start local development environment.
